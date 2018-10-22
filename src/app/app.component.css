@@ -1,0 +1,218 @@
+.example-stretched-tabs {
+  max-width: 70%;
+  margin: 100px auto;
+  margin-top: 25px;
+}
+
+/* MEXER A PARTIR DA FLAG LÁ EMBAIXO!!! */
+
+.topbar {
+  height: 57px;
+  background: #282828;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  position: fixed;
+}
+
+.topbar .user {
+  float: right;
+}
+
+.topbar .input-search {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  display: inline-block;
+  width: 180px;
+  height: 20px;
+  margin: 12px 20px 0 0;
+  padding: 7px 5px;
+  float: left;
+  background: #414042;
+  outline: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none;
+
+  color: white;
+}
+
+.topbar .user-settings {
+  float: left;
+  color: white;
+  text-align: right;
+  cursor: pointer;
+  position: relative;
+  line-height: 21px;
+  padding: 8px 5px 9px 8px;
+  margin-left: 12px;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.m-notifications {
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+  height: 18px;
+  padding: 3px 5px;
+  font: inherit;
+}
+
+.topbar nav .modules>li .pages {
+  left: 0;
+}
+
+.topbar nav .modules>li span:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background: url(https://s3.amazonaws.com/bm3assets/assets/arrow-5141ca34683933111d88e3591f7028bb34de83ab7db652f3ca0e84eea6c2de54.svg) center no-repeat;
+  background-size: 5px;
+  width: 11px;
+  height: 11px;
+  margin-left: 8px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.topbar .box-settings, .topbar .pages {
+  -moz-box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+  box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+  -moz-transition: opacity 300ms ease;
+  -o-transition: opacity 300ms ease;
+  -webkit-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
+  position: absolute;
+  background: #FFFFFF;
+  min-width: 275px;
+  top: 57px;
+  right: 0;
+  display: none;
+  z-index: 150;
+}
+
+.topbar .logo-buzzmonitor {
+  background: url(https://s3.amazonaws.com/bm3assets/assets/bm-d61d2ae17953a69190b4ff1263c7b8fd77dd40792343af5352f2b372a5599dd5.png) no-repeat center;
+  background-size: 180px;
+  width: 180px;
+  height: 43px;
+  text-indent: -9999px;
+  float: left;
+  margin-top: 8px;
+  margin-left: 30px;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.topbar nav {
+  float: left;
+  margin-left: 30px;
+}
+
+.topbar nav .modules>li:hover {
+  cursor: pointer;
+  color: #ffac30;
+}
+
+.topbar nav .modules>li {
+  float: left;
+  position: relative;
+  color: #E8E8E8;
+  font-size: 15px;
+}
+
+.topbar nav .modules>li>a, .topbar nav .modules>li>span {
+  padding: 5px 12px;
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+/* COMEÇAR DAQUI!! */
+
+.search {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.example-form-field {
+  width: 30%;
+}
+
+.adminname {
+  margin-top: 100px;
+}
+
+.admin-tab {
+  place-content: center;
+}
+
+.account-type {
+  margin-left: 30px;
+}
+
+.password-field {
+  margin-top: 20px;
+}
+
+.unlimited-check {
+  margin-left: 15px;
+  color: primary;
+  font-size: smaller;
+}
+
+.mat-slide-toggle {
+  margin-left: 25px;
+}
+
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  margin-right: 15px;
+}
+
+.example-margin {
+  width: 17%;
+}
+
+.mat-flat-button {
+  color: white;
+}
+
+.mat-tab-group {
+  margin-bottom: 5px;
+}
+
+.save-button {
+  float: right;
+  margin-top: 5px;
+  margin-right: 200px;
+  margin-bottom: 200px;
+  width: 15%;
+}
+
+.mat-progress-bar {
+  max-width: 60%;
+}
+
+
+

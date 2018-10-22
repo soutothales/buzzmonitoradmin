@@ -1,21 +1,180 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+<div class="topbar">
+  <div class="container-topbar">
+    <a class="logo-buzzmonitor" href="https://app.buzzmonitor.com.br/folders">Buzzmonitor</a>
+  </div>
+
+  <nav>
+    <ul class="modules">
+
+      <li>
+        <span>Monitoring</span>
+        <ul class="pages">
+          <li><a class="manage" href="/user/brands/edit">Manage projects</a></li>
+
+          <li><a class="open" href="/folders?collection_type=monitoring">View collection</a></li>
+
+          <li><a class="import" href="/import">Import data</a></li>
+
+          <li><a class="trigger" href="/triggers">Triggers (Rules)</a></li>
+
+          <li><a class="export" href="/exports">Exported data</a></li>
+
+
+          <li><a class="back" href="#">Back</a></li>
+        </ul>
+
+      </li>
+
+      <li>
+        <span>Customer Care</span>
+      </li>
+
+      <li>
+        <span>Analytics</span>
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="user">
+    <input type="text" name="form-search-query" id="form-search-query" class="input-search ui-autocomplete-input" placeholder="Search reports" autocomplete="off">
+
+  </div>
+
+</div>
+
+<div class="adminname" style="text-align:center">
+  <h2>Buzzmonitor Admin</h2>
+</div>
+
+<div class="search">
+  <mat-form-field class="example-form-field">
+    <input matInput type="text" [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button class="search-button" mat-flat-button color="warn" text-color="white">Search</button>
+
+</div>
+
+<div class="admin-tab">
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z2">
+
+    <mat-tab label="USER">
+      <mat-list role="list">
+        <mat-grid-list cols="2" rows="3" rowHeight="6:1">
+          <mat-grid-tile>User: BuzzMonitor Admin</mat-grid-tile>
+          <mat-grid-tile class="password-field">
+            <mat-form-field>
+              <input matInput placeholder="Password" [type]="!hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>Activation state <mat-slide-toggle></mat-slide-toggle></mat-grid-tile>
+          <mat-grid-tile class="password-field">
+            <mat-form-field>
+              <input matInput placeholder="Password confirmation" [type]="!hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>Account type *
+            <mat-form-field class="account-type">
+              <mat-select matNativeControl required>
+                <mat-option value="unassigned">Unassigned</mat-option>
+                <mat-option value="signed">Signed</mat-option>
+              </mat-select>
+            </mat-form-field></mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-divider></mat-divider>
+
+        <mat-grid-list cols="2" rowHeight="4:1">
+          <mat-grid-tile class="feature-limit">
+            Brands Limit *
+            <mat-form-field class="example-margin" *ngIf="!brands" style="margin-left: 25px;">
+              <input matInput type="number">
+            </mat-form-field>
+            <mat-checkbox class="unlimited-check" [(ngModel)]="disabled-brands">Unlimited</mat-checkbox>
+          </mat-grid-tile>
+          <mat-grid-tile class="feature-limit">
+            Collected post per month limit *
+            <mat-form-field class="example-margin" *ngIf="!posts" style="margin-left: 25px;">
+              <input matInput type="number">
+            </mat-form-field>
+            <mat-checkbox class="unlimited-check" [(ngModel)]="disabled-posts">Unlimited</mat-checkbox>
+          </mat-grid-tile>
+          <mat-grid-tile class="feature-limit">
+            Analytics profile limit *
+            <mat-form-field class="example-margin" *ngIf="!analytics" style="margin-left: 25px;">
+              <input matInput type="number">
+            </mat-form-field>
+            <mat-checkbox class="unlimited-check" [(ngModel)]="disabled-analytics">Unlimited</mat-checkbox>
+          </mat-grid-tile>
+          <mat-grid-tile class="feature-limit">
+            CRM profiles limit *
+            <mat-form-field class="example-margin" *ngIf="!crm" style="margin-left: 25px;">
+              <input matInput type="number">
+            </mat-form-field>
+            <mat-checkbox class="unlimited-check" [(ngModel)]="disabled-crm">Unlimited</mat-checkbox>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-list>
+    </mat-tab>
+
+    <mat-tab label="BRANDS & COLLECT">
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          <mat-form-field>
+            <mat-select placeholder="Select brand">
+              <mat-option [value]="brand1"> Brand1 </mat-option>
+              <mat-option [value]="brand2"> Brand2 </mat-option>
+              <mat-option [value]="brand3"> Brand3 </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-list-item>
+
+        <mat-list-item role="listitem"></mat-list-item>
+
+      </mat-list>
+
+
+
+
+
+    </mat-tab>
+
+    <mat-tab label="MONTH COMSUPTION">
+      <mat-list role="list">
+        <mat-list-item role="listitem">Amount of brands: 40/100</mat-list-item>
+        <mat-list-item role="listitem"><mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+        </mat-list-item>
+
+        <mat-list-item role="listitem" style="margin-top: 30px">Amount of posts collecteds: unlimited</mat-list-item>
+        <mat-list-item role="listitem"><mat-progress-bar mode="determinate" value="0"></mat-progress-bar></mat-list-item>
+
+        <mat-list-item role="listitem" style="margin-top: 30px">Amount of analytics: 25/100</mat-list-item>
+        <mat-list-item role="listitem"><mat-progress-bar mode="determinate" value="25"></mat-progress-bar></mat-list-item>
+
+        <mat-list-item role="listitem" style="margin-top: 30px">Amount of CRM profiles: 75/100</mat-list-item>
+        <mat-list-item role="listitem"><mat-progress-bar mode="determinate" value="75"></mat-progress-bar></mat-list-item>
+      </mat-list>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>
+
+<div>
+  <button class="save-button" mat-flat-button color="warn" text-color="white">Save</button>
+</div>
+
+
+
+
+<!-- <img width="100" alt="BuzzMonitor Logo" src="https://www.buzzmonitor.com.br/uploads/home_configuracao/thumb/marca_tammy_grande.png"> -->
+
+<!-- src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+-->
